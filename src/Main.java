@@ -23,7 +23,8 @@ public class Main {
         for (int i = 0; i < 6; i++){
             for (int j = 0; j < 50; j++){
                 int arr[] = array.getArray(vetor[i]);
-                System.out.println("Heap Sort: " + Arrays.toString(sort.heapSort(arr.clone())));
+                //System.out.println("Heap Sort: " + Arrays.toString(sort.heapSort(arr.clone())));
+                System.out.println("Bucket Sort: " + Arrays.toString(sort.bucketSort(arr.clone())));
             }
             System.out.println("Arrays criados: " + array.getCont());
         }

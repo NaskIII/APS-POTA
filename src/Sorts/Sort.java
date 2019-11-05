@@ -3,6 +3,8 @@ package Sorts;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
+
 public class Sort {
     public int[] bubbleSort(@NotNull int[] arr) {
         for (int i = 1; i <= arr.length; i++) {
@@ -161,6 +163,33 @@ public class Sort {
                 arr[indice] = i;
                 indice++;
                 count[i]--;
+            }
+        }
+
+        return arr;
+    }
+
+    public int[] bucketSort(int[] arr) {
+        int maior = encontrarMaior(arr);
+        ArrayList<Integer>[] auxiliar;
+        auxiliar = new ArrayList[arr.length];
+        for (int i = 0; i < auxiliar.length; i++) {
+            auxiliar[i] = new ArrayList<Integer>(arr.length);
+        }
+        int indice;
+        for (int i = 0; i < auxiliar.length; i++) {
+            indice = (arr[i] * arr.length) / (maior + 1);
+            ArrayList<Integer> temporario = auxiliar[indice];
+            int contador = 0;
+            while (contador < temporario.size() && temporario.get(contador) < arr[i]) {
+                contador++;
+            }
+            temporario.add(contador, arr[i]);
+        }
+        indice = 0;
+        for (int i = 0; i < auxiliar.length; i++) {
+            while (!auxiliar[i].isEmpty()) {
+                arr[indice++] = auxiliar[i].remove(0);
             }
         }
 
