@@ -22,25 +22,124 @@ public class Main {
         Time time = new Time();
         System.out.println("\n\n================ Iniciando =================\n");
 
-        for (int i = 0; i < 6; i++){
+        for (int i = 0; i < 5; i++){
             for (int j = 0; j < 50; j++){
                 int arr[] = array.getArray(vetor[i]);
+
                 time.start();
                 sort.bubbleSort(arr.clone());
-                time.stop();
-                time.add("BUBBLE_SORT", time.getResult());
+                time.add("BUBBLE_SORT", time.stop());
 
                 //=======================================
+
+                time.start();
+                sort.selectionSort(arr.clone());
+                time.add("SELECTION_SORT", time.stop());
+
+                //=======================================
+
+                time.start();
+                sort.insertionSort(arr.clone());
+                time.add("INSERTION_SORT", time.stop());
+
+                //=======================================
+
+                time.start();
+                sort.heapSort(arr.clone());
+                time.add("HEAP_SORT", time.stop());
+
+                //=======================================
+
+                /*time.start();
+                sort.mergeSort(arr.clone());
+                time.add("MERGE_SORT", time.stop());*/
+
+                //=======================================
+
                 time.start();
                 sort.quickSort(arr.clone(), 0, arr.length - 1);
-                time.stop();
-                time.add("QUICK_SORT", time.getResult());
+                time.add("QUICK_SORT", time.stop());
+
+                //=======================================
+
+                time.start();
+                sort.countSort(arr.clone());
+                time.add("COUNT_SORT", time.stop());
+
+                //=======================================
+
+                time.start();
+                sort.bucketSort(arr.clone());
+                time.add("BUCKET_SORT", time.stop());
+
+                //=======================================
+
+                /*time.start();
+                sort.radixSort(arr.clone());
+                time.add("RADIX_SORT", time.stop());*/
             }
-            System.out.println("Tempo Bubble: " + time.get("BUBBLE_SORT"));
-            System.out.println("Tempo Quick: " + time.get("QUICK_SORT"));
-            System.out.println("Arrays criados: " + array.getCont() + "\n");
+            time.getHash();
+            System.out.println();
             time.restart();
         }
-        //System.out.println("\n" + array.manager());
+
+        for (int j = 0; j < 50; j++){
+            int arr[] = array.getArray(vetor[5]);
+
+            time.start(true);
+            sort.bubbleSort(arr.clone());
+            time.add("BUBBLE_SORT", time.stop(true));
+
+            //=======================================
+
+            time.start(true);
+            sort.selectionSort(arr.clone());
+            time.add("SELECTION_SORT", time.stop(true));
+
+            //=======================================
+
+            time.start(true);
+            sort.insertionSort(arr.clone());
+            time.add("INSERTION_SORT", time.stop(true));
+
+            //=======================================
+
+            time.start(true);
+            sort.heapSort(arr.clone());
+            time.add("HEAP_SORT", time.stop(true));
+
+            //=======================================
+
+                /*time.start();
+                sort.mergeSort(arr.clone());
+                time.add("MERGE_SORT", time.stop());*/
+
+            //=======================================
+
+            time.start(true);
+            sort.quickSort(arr.clone(), 0, arr.length - 1);
+            time.add("QUICK_SORT", time.stop(true));
+
+            //=======================================
+
+            time.start(true);
+            sort.countSort(arr.clone());
+            time.add("COUNT_SORT", time.stop(true));
+
+            //=======================================
+
+            time.start(true);
+            sort.bucketSort(arr.clone());
+            time.add("BUCKET_SORT", time.stop(true));
+
+            //=======================================
+
+                /*time.start();
+                sort.radixSort(arr.clone());
+                time.add("RADIX_SORT", time.stop());*/
+        }
+        time.getHash();
+        System.out.println();
+        time.restart();
     }
 }
