@@ -4,9 +4,10 @@ import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class Sort {
-    public int[] bubbleSort(@NotNull int[] arr) {
+    public void bubbleSort(@NotNull int[] arr) {
         for (int i = 1; i <= arr.length; i++) {
             for (int j = 0; j < arr.length - i; j++) {
                 if (arr[j] > arr[j + 1]) {
@@ -14,10 +15,9 @@ public class Sort {
                 }
             }
         }
-        return arr;
     }
 
-    public int[] selectionSort(@NotNull int[] arr) {
+    public void selectionSort(@NotNull int[] arr) {
         int current_min;
 
         for (int i = 0; i < arr.length; i++) {
@@ -27,17 +27,15 @@ public class Sort {
             }
             swap(arr, i, current_min);
         }
-        return arr;
     }
 
-    public int[] insertionSort(@NotNull int[] arr) {
+    public void insertionSort(@NotNull int[] arr) {
         for (int i = 1; i <= arr.length - 1; i++) {
             int j = i;
             while (j > 0 && arr[j - 1] > arr[j]) {
                 swap(arr, j, j - 1);
             }
         }
-        return arr;
     }
 
     /*public void mergeSort(int arr[], int begin, int end){
@@ -76,7 +74,7 @@ public class Sort {
 
     @NotNull
     @Contract("_ -> param1")
-    public int[] heapSort(int[] arr) {
+    public void heapSort(int[] arr) {
         criaHeap(arr, arr.length);
         int fim = arr.length - 1;
         while (fim > 0) {
@@ -84,7 +82,6 @@ public class Sort {
             fim -= 1;
             arrumaHeap(arr, 0, fim);
         }
-        return arr;
     }
 
     public void criaHeap(int[] arr, int size) {
@@ -117,13 +114,12 @@ public class Sort {
     }
 
     @Contract("_, _, _ -> param1")
-    public int[] quickSort(int[] arr, int inicio, int fim) {
+    public void quickSort(int[] arr, int inicio, int fim) {
         if (inicio < fim) {
             int meio = particionar(arr, inicio, fim);
             quickSort(arr, inicio, meio - 1);
             quickSort(arr, meio + 1, fim);
         }
-        return arr;
     }
 
     public int particionar(int arr[], int inicio, int fim) {
@@ -148,7 +144,7 @@ public class Sort {
     }
 
     @Contract("_ -> param1")
-    public int[] countSort(int[] arr) {
+    public void countSort(int[] arr) {
         int maior = encontrarMaior(arr);
         int[] count = new int[maior + 1];
 
@@ -165,11 +161,9 @@ public class Sort {
                 count[i]--;
             }
         }
-
-        return arr;
     }
 
-    public int[] bucketSort(int[] arr) {
+    /*public int[] bucketSort(int[] arr) {
         int maior = encontrarMaior(arr);
         ArrayList<Integer>[] auxiliar;
         auxiliar = new ArrayList[arr.length];
@@ -194,6 +188,52 @@ public class Sort {
         }
 
         return arr;
+    }*/
+
+    public void bucketSort(int[] arr) {
+        int maiorValor = encontrarMaior(arr);
+        int numBaldes = maiorValor / 5;
+
+        LinkedList[] B = new LinkedList[numBaldes];
+
+        for (int i = 0; i < numBaldes; i++) {
+            B[i] = new LinkedList<Integer>();
+        }
+
+        //Coloca os valores no balde respectivo:
+        for (int i = 0; i < arr.length; i++) {
+            int j = numBaldes - 1;
+            while (true) {
+                if (j < 0) {
+                    break;
+                }
+                if (arr[i] >= (j * 5)) {
+                    B[j].add(arr[i]);
+                    break;
+                }
+                j--;
+            }
+        }
+
+        //Ordena e atualiza o arr:
+        int indice = 0;
+        for (int i = 0; i < numBaldes; i++) {
+
+            int[] aux = new int[B[i].size()];
+
+            //Coloca cada balde num arr:
+            for (int j = 0; j < aux.length; j++) {
+                aux[j] = (Integer) B[i].get(j);
+            }
+
+            insertionSort(aux); //algoritmo escolhido para ordenação.
+
+            // Devolve os valores ao arr de entrada:
+            for (int j = 0; j < aux.length; j++, indice++) {
+                arr[indice] = aux[j];
+            }
+
+        }
     }
 
     @Contract(pure = true)

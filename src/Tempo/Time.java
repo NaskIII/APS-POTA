@@ -4,37 +4,52 @@ import java.util.HashMap;
 
 public class Time {
 
-    private double begin;
-    private double end;
-    private double result;
+    private long begin;
+    private long end;
     private HashMap<String, String> dict = new HashMap<String, String>();
 
-    public void start(){
+    public void start() {
         end = 0;
         begin = System.nanoTime();
     }
 
-    public void restart(){
+    public void start(boolean milli){
+        end = 0;
+        begin = System.currentTimeMillis();
+    }
+
+    public void restart() {
         end = 0;
         begin = 0;
-        result = 0;
         dict.clear();
     }
 
-    public void stop(){
-        end = System.nanoTime();
-        result = end - begin;
+    public double stop() {
+        return end = System.nanoTime() - begin;
     }
 
-    public void add(String key, double value){
-        dict.put(key, String.valueOf(value));
+    public long stop(boolean millis){
+        return end = System.currentTimeMillis() - begin;
     }
 
-    public String get(String key){
+    public void add(String key, double value) {
+        //dict.put(key, String.valueOf(value));
+        String valor = dict.get(key);
+
+        if (valor == null) {
+            dict.put(key, String.valueOf(value));
+        } else {
+            double aux = Double.parseDouble(valor);
+            dict.put(key, String.valueOf(aux + value));
+        }
+    }
+
+    public String get(String key) {
         return dict.get(key);
     }
 
-    public double getResult(){
-        return result;
+
+    public void getHash() {
+        dict.forEach((key, value) -> System.out.println(key + ": " + Double.parseDouble(value) / 50));
     }
 }
