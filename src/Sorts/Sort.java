@@ -7,12 +7,21 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class Sort {
-    public void bubbleSort(@NotNull int[] arr) {
+    /*public void bubbleSort(@NotNull int[] arr) {
         for (int i = 1; i <= arr.length; i++) {
             for (int j = 0; j < arr.length - i; j++) {
                 if (arr[j] > arr[j + 1]) {
                     swap(arr, j, j + 1);
                 }
+            }
+        }
+    }*/
+
+    public void bubbleSort(@NotNull int[] arr) {
+        for(int i = 1; i <= arr.length; i++) {
+            for (int j = 0; j < arr.length - i; j++) {
+                if (arr[j] > arr[j + 1])
+                    swap(arr, j, j + 1);
             }
         }
     }
@@ -29,12 +38,27 @@ public class Sort {
         }
     }
 
-    public void insertionSort(@NotNull int[] arr) {
+    /*public void insertionSort(@NotNull int[] arr) {
         for (int i = 1; i <= arr.length - 1; i++) {
             int j = i;
             while (j > 0 && arr[j - 1] > arr[j]) {
                 swap(arr, j, j - 1);
             }
+        }
+    }*/
+
+    public void insertionSort(int arr[])
+    {
+        int n = arr.length;
+        for (int i = 1; i < n; ++i) {
+            int key = arr[i];
+            int j = i - 1;
+
+            while (j >= 0 && arr[j] > key) {
+                arr[j + 1] = arr[j];
+                j = j - 1;
+            }
+            arr[j + 1] = key;
         }
     }
 
@@ -163,7 +187,7 @@ public class Sort {
         }
     }
 
-    /*public int[] bucketSort(int[] arr) {
+    public int[] bucketSort(int[] arr) {
         int maior = encontrarMaior(arr);
         ArrayList<Integer>[] auxiliar;
         auxiliar = new ArrayList[arr.length];
@@ -188,9 +212,9 @@ public class Sort {
         }
 
         return arr;
-    }*/
+    }
 
-    public void bucketSort(int[] arr) {
+    /*public void bucketSort(int[] arr) {
         int maiorValor = encontrarMaior(arr);
         int numBaldes = maiorValor / 5;
 
@@ -234,7 +258,7 @@ public class Sort {
             }
 
         }
-    }
+    }*/
 
     @Contract(pure = true)
     public int encontrarMaior(@NotNull int[] arr) {
