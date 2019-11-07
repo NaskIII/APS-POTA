@@ -6,13 +6,8 @@ import java.util.Random;
 
 public class Array {
 
-    private int[] vetor;
-    private int cont = 0;
 
-    @Contract(pure = true)
-    public Array(int[] arr) {
-        this.vetor = arr;
-    }
+    private int cont = 0;
 
     /*public String manager() {
         call(vetor[0]);

@@ -45,7 +45,8 @@ public class Time {
     }
 
     public String get(String key) {
-        return dict.get(key);
+         double aux = Double.parseDouble(dict.get(key)) / 50;
+         return String.valueOf(aux);
     }
 
 
