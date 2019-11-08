@@ -187,7 +187,7 @@ public class Sort {
         }
     }
 
-    public int[] bucketSort(int[] arr) {
+    /*public int[] bucketSort(int[] arr) {
         int maior = encontrarMaior(arr);
         ArrayList<Integer>[] auxiliar;
         auxiliar = new ArrayList[arr.length];
@@ -212,9 +212,9 @@ public class Sort {
         }
 
         return arr;
-    }
+    }*/
 
-    /*public void bucketSort(int[] arr) {
+    public void bucketSort(int[] arr) {
         int maiorValor = encontrarMaior(arr);
         int numBaldes = maiorValor / 5;
 
@@ -224,7 +224,6 @@ public class Sort {
             B[i] = new LinkedList<Integer>();
         }
 
-        //Coloca os valores no balde respectivo:
         for (int i = 0; i < arr.length; i++) {
             int j = numBaldes - 1;
             while (true) {
@@ -239,26 +238,23 @@ public class Sort {
             }
         }
 
-        //Ordena e atualiza o arr:
         int indice = 0;
         for (int i = 0; i < numBaldes; i++) {
 
             int[] aux = new int[B[i].size()];
 
-            //Coloca cada balde num arr:
             for (int j = 0; j < aux.length; j++) {
                 aux[j] = (Integer) B[i].get(j);
             }
 
-            insertionSort(aux); //algoritmo escolhido para ordenação.
+            insertionSort(aux);
 
-            // Devolve os valores ao arr de entrada:
             for (int j = 0; j < aux.length; j++, indice++) {
                 arr[indice] = aux[j];
             }
 
         }
-    }*/
+    }
 
     @Contract(pure = true)
     public int encontrarMaior(@NotNull int[] arr) {
