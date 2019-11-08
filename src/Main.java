@@ -25,7 +25,7 @@ public class Main {
         Grafico grafico = new Grafico();
         System.out.println("\n\n================ Iniciando =================\n");
 
-        grafico.reader("/home/nask/Documentos/Repositórios/APS-POTA/src/Graficos/Canvas.html");
+        grafico.reader(System.getProperty("user.dir") + "\\src\\Graficos\\Canvas.html");
 
         for (int i = 0; i < 5; i++){
             for (int j = 0; j < 50; j++){
@@ -83,7 +83,6 @@ public class Main {
                 sort.radixSort(arr.clone());*/
                 time.add("RADIX_SORT", 0);
             }
-            time.getHash();
             grafico.writer("FinalGraph.html", String.valueOf(i + 1) + "!", time.get("BUBBLE_SORT"));
             grafico.writer("FinalGraph.html", String.valueOf(i + 1) + "@", time.get("SELECTION_SORT"));
             grafico.writer("FinalGraph.html", String.valueOf(i + 1) + "#", time.get("INSERTION_SORT"));
@@ -123,9 +122,9 @@ public class Main {
 
             //=======================================
 
-                /*time.start();
-                sort.mergeSort(arr.clone());*/
-                time.add("MERGE_SORT", 0);
+            /*time.start();
+            sort.mergeSort(arr.clone());*/
+            time.add("MERGE_SORT", 0);
 
             //=======================================
 
@@ -150,20 +149,19 @@ public class Main {
             /*time.start();
             sort.radixSort(arr.clone());*/
             time.add("RADIX_SORT", 0);
-
-            grafico.writer("FinalGraph.html", String.valueOf(i + 1) + "!", time.get("BUBBLE_SORT"));
-            grafico.writer("FinalGraph.html", String.valueOf(i + 1) + "@", time.get("SELECTION_SORT"));
-            grafico.writer("FinalGraph.html", String.valueOf(i + 1) + "#", time.get("INSERTION_SORT"));
-            grafico.writer("FinalGraph.html", String.valueOf(i + 1) + "$", time.get("HEAP_SORT"));
-            grafico.writer("FinalGraph.html", String.valueOf(i + 1) + "%", time.get("MERGE_SORT"));
-            grafico.writer("FinalGraph.html", String.valueOf(i + 1) + "&", time.get("QUICK_SORT"));
-            grafico.writer("FinalGraph.html", String.valueOf(i + 1) + "*", time.get("COUNT_SORT"));
-            grafico.writer("FinalGraph.html", String.valueOf(i + 1) + "(", time.get("BUCKET_SORT"));
-            grafico.writer("FinalGraph.html", String.valueOf(i + 1) + ")", time.get("RADIX_SORT"));
         }
+        grafico.writer("FinalGraph.html", String.valueOf(6) + "!", time.get("BUBBLE_SORT"));
+        grafico.writer("FinalGraph.html", String.valueOf(6) + "@", time.get("SELECTION_SORT"));
+        grafico.writer("FinalGraph.html", String.valueOf(6) + "#", time.get("INSERTION_SORT"));
+        grafico.writer("FinalGraph.html", String.valueOf(6) + "$", time.get("HEAP_SORT"));
+        grafico.writer("FinalGraph.html", String.valueOf(6) + "%", time.get("MERGE_SORT"));
+        grafico.writer("FinalGraph.html", String.valueOf(6) + "&", time.get("QUICK_SORT"));
+        grafico.writer("FinalGraph.html", String.valueOf(6) + "*", time.get("COUNT_SORT"));
+        grafico.writer("FinalGraph.html", String.valueOf(6) + "(", time.get("BUCKET_SORT"));
+        grafico.writer("FinalGraph.html", String.valueOf(6) + ")", time.get("RADIX_SORT"));
         time.getHash();
         time.restart();
 
-        System.out.println("===================FINISH====================");
+        System.out.println("=================== FINISH ====================");
     }
 }

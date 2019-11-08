@@ -7,11 +7,13 @@ public class Teste {
     public static void main(String[] args) {
         Array arr = new Array();
 
-        int[] array = arr.getArray(10);
+        int[] array = arr.getArray(10000);
         Sort sort = new Sort();
 
-        sort.bucketSort(array);
+        long inicio = System.currentTimeMillis();
+        sort.countSort(array);
+        long fim = System.currentTimeMillis() - inicio;
 
-        System.out.println(Arrays.toString(array));
+        System.out.println(fim);
     }
 }
