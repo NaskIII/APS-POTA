@@ -47,8 +47,7 @@ public class Sort {
         }
     }*/
 
-    public void insertionSort(int arr[])
-    {
+    public void insertionSort(@NotNull int arr[]) {
         int n = arr.length;
         for (int i = 1; i < n; ++i) {
             int key = arr[i];
@@ -95,6 +94,39 @@ public class Sort {
 
         System.out.println(Arrays.toString(arr));
     }*/
+
+    public void mergeSort(int[] vetor, int inicio, int fim) {
+
+        if (inicio < fim) {
+            int meio = (inicio + fim) / 2;
+            mergeSort(vetor, inicio, meio);
+            mergeSort(vetor, meio + 1, fim);
+            intercala(vetor, inicio, meio, fim);
+        }
+    }
+
+    public void intercala(int[] vetor, int inicio, int meio, int fim) {
+        int vetorAux[] = new int[fim + 1];
+        int i;
+        for (i = inicio; i <= meio; i++) {
+            vetorAux[i] = vetor[i];
+        }
+        int j;
+        for (j = meio + 1; j <= fim; j++) {
+            vetorAux[fim + meio + 1 - j] = vetor[j];
+        }
+        i = inicio;
+        j = fim;
+        for (int k = inicio; k <= fim; k++) {
+            if (vetorAux[i] <= vetorAux[j]) {
+                vetor[k] = vetorAux[i];
+                i = i + 1;
+            } else {
+                vetor[k] = vetorAux[j];
+                j = j - 1;
+            }
+        }
+    }
 
     @NotNull
     @Contract("_ -> param1")
@@ -187,7 +219,7 @@ public class Sort {
         }
     }
 
-    public int[] bucketSort(int[] arr) {
+    /*public int[] bucketSort(int[] arr) {
         int maior = encontrarMaior(arr);
         ArrayList<Integer>[] auxiliar;
         auxiliar = new ArrayList[arr.length];
@@ -212,9 +244,9 @@ public class Sort {
         }
 
         return arr;
-    }
+    }*/
 
-    /*public void bucketSort(int[] arr) {
+    public void bucketSort(int[] arr) {
         int maiorValor = encontrarMaior(arr);
         int numBaldes = maiorValor / 5;
 
@@ -227,6 +259,7 @@ public class Sort {
         //Coloca os valores no balde respectivo:
         for (int i = 0; i < arr.length; i++) {
             int j = numBaldes - 1;
+
             while (true) {
                 if (j < 0) {
                     break;
@@ -239,26 +272,23 @@ public class Sort {
             }
         }
 
-        //Ordena e atualiza o arr:
         int indice = 0;
-        for (int i = 0; i < numBaldes; i++) {
 
+        for (int i = 0; i < numBaldes; i++) {
             int[] aux = new int[B[i].size()];
 
-            //Coloca cada balde num arr:
             for (int j = 0; j < aux.length; j++) {
                 aux[j] = (Integer) B[i].get(j);
             }
 
-            insertionSort(aux); //algoritmo escolhido para ordenação.
+            insertionSort(aux);
 
-            // Devolve os valores ao arr de entrada:
             for (int j = 0; j < aux.length; j++, indice++) {
                 arr[indice] = aux[j];
             }
 
         }
-    }*/
+    }
 
     @Contract(pure = true)
     public int encontrarMaior(@NotNull int[] arr) {

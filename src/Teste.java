@@ -7,10 +7,10 @@ public class Teste {
     public static void main(String[] args) {
         Array arr = new Array();
 
-        int[] array = arr.getArray(10);
+        int[] array = arr.getArray(100);
         Sort sort = new Sort();
 
-        sort.bucketSort(array);
+        sort.mergeSort(array, 0, array.length - 1);
 
         System.out.println(Arrays.toString(array));
     }

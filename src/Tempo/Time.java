@@ -13,7 +13,7 @@ public class Time {
         begin = System.nanoTime();
     }
 
-    public void start(boolean milli){
+    public void start(boolean milli) {
         end = 0;
         begin = System.currentTimeMillis();
     }
@@ -28,7 +28,7 @@ public class Time {
         return end = System.nanoTime() - begin;
     }
 
-    public long stop(boolean millis){
+    public long stop(boolean millis) {
         return end = System.currentTimeMillis() - begin;
     }
 
@@ -45,8 +45,8 @@ public class Time {
     }
 
     public String get(String key) {
-         double aux = Double.parseDouble(dict.get(key)) / 50;
-         return String.valueOf(aux);
+        double aux = Double.parseDouble(dict.get(key)) / 50;
+        return String.valueOf(aux);
     }
 
 

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Gráficos</title>
+        <meta charset="utf-8">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+        <style>
+            canvas {
+                padding-left: 300px;
+            }
+        </style>
+    </head>
+    <body>
+    <canvas class="array5" width="1200" height="600"></canvas>
+
+        <script>
+            var ctx = document.getElementsByClassName("array5");
+
+            //Type, Data and options
+            var chartGraph = new Chart(ctx, {
+                type: 'bar',
+                options: {
+                    responsive: false,
+
+                    title: {
+                        display: true,
+                        text: 'Array de 5 elementos',
+                        fontSize: 25,
+                        fontColor: '#4B0082'
+                    }
+                },
+                
+                data: {
+                    labels: ["BUBBLE_SORT", "SELECTION_SORT", "INSERTION_SORT", "HEAP_SORT", "MERGE_SORT", "QUICK_SORT", "COUNT_SORT", "BUCKET_SORT", "RADIX_SORT"],
+                    datasets: [{
+                        label: "Tempo(ns)",
+                        data: [ 3449.08 , 3002.84 , 1891.4 , 4880.32 , 0.0 , 3737.4 , 5767.94 , 24469.9 , 0.0 ],
+                        borderColor: 'rgba(77, 166, 253, 0.70)',
+                        backgroundColor: 'rgba(77, 166, 253, 0.60)'
+                    }]
+                }
+            });
+            
+        </script>
+
+    <canvas class="array10" width="1200" height="600"></canvas>
+
+        <script>
+            var ctx = document.getElementsByClassName("array10");
+
+            //Type, Data and options
+            var chartGraph = new Chart(ctx, {
+                type: 'bar',
+                options: {
+                    responsive: false,
+
+                    title: {
+                        display: true,
+                        position: 'top',
+                        text: 'Array de 10 elementos',
+                        fontSize: 25,
+                        fontColor: '#4B0082'
+                    }
+                },
+
+                data: {
+                    labels: ["BUBBLE_SORT", "SELECTION_SORT", "INSERTION_SORT", "HEAP_SORT", "MERGE_SORT", "QUICK_SORT", "COUNT_SORT", "BUCKET_SORT", "RADIX_SORT"],
+                    datasets: [{
+                        label: "Tempo(ns)",
+                        data: [ 6076.2 , 5088.14 , 1723.1 , 4043.02 , 0.0 , 7072.14 , 6877.32 , 29366.48 , 0.0 ],
+                        borderColor: 'rgba(77, 166, 253, 0.70)',
+                        backgroundColor: 'rgba(77, 166, 253, 0.60)'
+                    }]
+                }
+            });
+
+        </script>
+
+    <canvas class="array50" width="1200" height="600"></canvas>
+
+    <script>
+            var ctx = document.getElementsByClassName("array50");
+
+            //Type, Data and options
+            var chartGraph = new Chart(ctx, {
+                type: 'bar',
+                options: {
+                    responsive: false,
+
+                    title: {
+                        display: true,
+                        text: 'Array de 50 Elementos',
+                        fontSize: 25,
+                        fontColor: '#4B0082'
+                    }
+                },
+
+                data: {
+                    labels: ["BUBBLE_SORT", "SELECTION_SORT", "INSERTION_SORT", "HEAP_SORT", "MERGE_SORT", "QUICK_SORT", "COUNT_SORT", "BUCKET_SORT", "RADIX_SORT"],
+                    datasets: [{
+                        label: "Tempo(ns)",
+                        data: [ 60010.62 , 35193.7 , 7224.04 , 14529.78 , 0.0 , 11257.56 , 9288.88 , 62218.24 , 0.0 ],
+                        borderColor: 'rgba(77, 166, 253, 0.70)',
+                        backgroundColor: 'rgba(77, 166, 253, 0.60)'
+                    }]
+                }
+            });
+
+        </script>
+
+        <br>
+        <br>
+
+    <canvas class="array100" width="1200" height="600"></canvas>
+
+    <script>
+            var ctx = document.getElementsByClassName("array100");
+
+            //Type, Data and options
+            var chartGraph = new Chart(ctx, {
+                type: 'bar',
+                options: {
+                    responsive: false,
+                    title: {
+                        display: true,
+                        text: 'Array de 100 Elementos',
+                        fontSize: 25,
+                        fontColor: '#4B0082'
+                    }
+                },
+
+                data: {
+                    labels: ["BUBBLE_SORT", "SELECTION_SORT", "INSERTION_SORT", "HEAP_SORT", "MERGE_SORT", "QUICK_SORT", "COUNT_SORT", "BUCKET_SORT", "RADIX_SORT"],
+                    datasets: [{
+                        label: "Tempo(ns)",
+                        data: [ 47695.22 , 30072.98 , 4512.22 , 12494.5 , 0.0 , 9319.38 , 3866.96 , 17300.82 , 0.0 ],
+                        borderColor: 'rgba(77, 166, 253, 0.70)',
+                        backgroundColor: 'rgba(77, 166, 253, 0.60)'
+                    }]
+                }
+            });
+
+        </script>
+
+    <canvas class="array1000" width="1200" height="600"></canvas>
+
+    <script>
+            var ctx = document.getElementsByClassName("array1000");
+
+            //Type, Data and options
+            var chartGraph = new Chart(ctx, {
+                type: 'bar',
+                options:{
+                    responsive: false,
+                    title: {
+                        display: true,
+                        text: 'Array de 1000 Elementos',
+                        fontSize: 25,
+                        fontColor: '#4B0082'
+                    }
+                },
+
+                data: {
+                    labels: ["BUBBLE_SORT", "SELECTION_SORT", "INSERTION_SORT", "HEAP_SORT", "MERGE_SORT", "QUICK_SORT", "COUNT_SORT", "BUCKET_SORT", "RADIX_SORT"],
+                    datasets: [{
+                        label: "Tempo(ns)",
+                        data: [ 1213336.64 , 621603.8 , 161130.8 , 107856.78 , 0.0 , 75594.82 , 22471.04 , 207390.12 , 0.0 ],
+                        borderColor: 'rgba(77, 166, 253, 0.70)',
+                        backgroundColor: 'rgba(77, 166, 253, 0.60)'
+                    }]
+                }
+            });
+
+        </script>
+
+    <canvas class="array10000" width="1200" height="600"></canvas>
+
+    <script>
+            var ctx = document.getElementsByClassName("array10000");
+
+            //Type, Data and options
+            var chartGraph = new Chart(ctx, {
+                type: 'bar',
+                options: {
+                    responsive: false,
+                    title: {
+                        display: true,
+                        text: 'Array de 10000 Elementos',
+                        fontSize: 25,
+                        fontColor: '#4B0082'
+                    }
+                },
+
+                data: {
+                    labels: ["BUBBLE_SORT", "SELECTION_SORT", "INSERTION_SORT", "HEAP_SORT", "MERGE_SORT", "QUICK_SORT", "COUNT_SORT", "BUCKET_SORT", "RADIX_SORT"],
+                    datasets: [{
+                        label: "Tempo(ms)",
+                        data: [ 69.12 , 22.96 , 6.0 , 0.3 , 0.0 , 0.14 , 0.02 , 1.48 , 0.0 ],
+                        borderColor: 'rgba(77, 166, 253, 0.70)',
+                        backgroundColor: 'rgba(77, 166, 253, 0.60)'
+                    }]
+                }
+            });
+
+        </script>
+
+    </body>
+</html>

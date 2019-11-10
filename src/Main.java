@@ -83,7 +83,6 @@ public class Main {
                 sort.radixSort(arr.clone());*/
                 time.add("RADIX_SORT", 0);
             }
-            time.getHash();
             grafico.writer("FinalGraph.html", String.valueOf(i + 1) + "!", time.get("BUBBLE_SORT"));
             grafico.writer("FinalGraph.html", String.valueOf(i + 1) + "@", time.get("SELECTION_SORT"));
             grafico.writer("FinalGraph.html", String.valueOf(i + 1) + "#", time.get("INSERTION_SORT"));
@@ -161,7 +160,6 @@ public class Main {
             grafico.writer("FinalGraph.html", String.valueOf(i + 1) + "(", time.get("BUCKET_SORT"));
             grafico.writer("FinalGraph.html", String.valueOf(i + 1) + ")", time.get("RADIX_SORT"));
         }
-        time.getHash();
         time.restart();
 
         System.out.println("===================FINISH====================");
