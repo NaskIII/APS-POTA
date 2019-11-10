@@ -3,22 +3,13 @@ package Sorts;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedList;
 
 public class Sort {
-    /*public void bubbleSort(@NotNull int[] arr) {
-        for (int i = 1; i <= arr.length; i++) {
-            for (int j = 0; j < arr.length - i; j++) {
-                if (arr[j] > arr[j + 1]) {
-                    swap(arr, j, j + 1);
-                }
-            }
-        }
-    }*/
 
     public void bubbleSort(@NotNull int[] arr) {
-        for(int i = 1; i <= arr.length; i++) {
+        for (int i = 1; i <= arr.length; i++) {
             for (int j = 0; j < arr.length - i; j++) {
                 if (arr[j] > arr[j + 1])
                     swap(arr, j, j + 1);
@@ -38,15 +29,6 @@ public class Sort {
         }
     }
 
-    /*public void insertionSort(@NotNull int[] arr) {
-        for (int i = 1; i <= arr.length - 1; i++) {
-            int j = i;
-            while (j > 0 && arr[j - 1] > arr[j]) {
-                swap(arr, j, j - 1);
-            }
-        }
-    }*/
-
     public void insertionSort(@NotNull int arr[]) {
         int n = arr.length;
         for (int i = 1; i < n; ++i) {
@@ -60,40 +42,6 @@ public class Sort {
             arr[j + 1] = key;
         }
     }
-
-    /*public void mergeSort(int arr[], int begin, int end){
-        if (begin < end){
-            int mid = (begin + end)/2;
-            mergeSort(arr, begin, mid);
-            mergeSort(arr, mid + 1, end);
-            intercala(arr, begin, mid, end);
-        }
-    }
-
-    public void intercala(int arr[], int begin, int mid, int end){
-        int aux[] = new int[arr.length];
-        for (int i = begin; i < mid; i++){
-            aux[i] = arr[i];
-        }
-        for (int j = mid + 1; j < end; j++){
-            aux[end + mid + 1 - j] = arr[j];
-        }
-
-        int i = begin;
-        int j = end;
-
-        for (int k = begin; k < end; k++){
-            if (aux[i] <= aux[j]){
-                arr[k] = aux[i];
-                i += 1;
-            } else{
-                arr[k] = aux[j];
-                j -= 1;
-            }
-        }
-
-        System.out.println(Arrays.toString(arr));
-    }*/
 
     public void mergeSort(int[] vetor, int inicio, int fim) {
 
@@ -219,32 +167,26 @@ public class Sort {
         }
     }
 
-    /*public int[] bucketSort(int[] arr) {
-        int maior = encontrarMaior(arr);
-        ArrayList<Integer>[] auxiliar;
-        auxiliar = new ArrayList[arr.length];
-        for (int i = 0; i < auxiliar.length; i++) {
-            auxiliar[i] = new ArrayList<Integer>(arr.length);
-        }
-        int indice;
-        for (int i = 0; i < auxiliar.length; i++) {
-            indice = (arr[i] * arr.length) / (maior + 1);
-            ArrayList<Integer> temporario = auxiliar[indice];
-            int contador = 0;
-            while (contador < temporario.size() && temporario.get(contador) < arr[i]) {
-                contador++;
-            }
-            temporario.add(contador, arr[i]);
-        }
-        indice = 0;
-        for (int i = 0; i < auxiliar.length; i++) {
-            while (!auxiliar[i].isEmpty()) {
-                arr[indice++] = auxiliar[i].remove(0);
-            }
+    public void countSort(int arr[], int n, int exp) {
+        int output[] = new int[n];
+        int i;
+        int count[] = new int[10];
+        Arrays.fill(count, 0);
+
+        for (i = 0; i < n; i++)
+            count[(arr[i] / exp) % 10]++;
+
+        for (i = 1; i < 10; i++)
+            count[i] += count[i - 1];
+
+        for (i = n - 1; i >= 0; i--) {
+            output[count[(arr[i] / exp) % 10] - 1] = arr[i];
+            count[(arr[i] / exp) % 10]--;
         }
 
-        return arr;
-    }*/
+        for (i = 0; i < n; i++)
+            arr[i] = output[i];
+    }
 
     public void bucketSort(int[] arr) {
         int maiorValor = encontrarMaior(arr);
@@ -287,6 +229,13 @@ public class Sort {
             }
 
         }
+    }
+
+    public void radixSort(int arr[], int n) {
+        int max = encontrarMaior(arr);
+
+        for (int exp = 1; max / exp > 0; exp *= 10)
+            countSort(arr, n, exp);
     }
 
     @Contract(pure = true)

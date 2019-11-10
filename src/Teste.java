@@ -8,19 +8,11 @@ public class Teste {
         Array arr = new Array();
 
 
-        int[] array = arr.getArray(100);
+        int[] array = arr.getArray(100000);
         Sort sort = new Sort();
 
-        sort.mergeSort(array, 0, array.length - 1);
+        sort.radixSort(array, array.length);
 
-        int[] array = arr.getArray(10000);
-        Sort sort = new Sort();
-
-        long inicio = System.currentTimeMillis();
-        sort.countSort(array);
-        long fim = System.currentTimeMillis() - inicio;
-
-
-        System.out.println(fim);
+        System.out.println(Arrays.toString(array));
     }
 }
