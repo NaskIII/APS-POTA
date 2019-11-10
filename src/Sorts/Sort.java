@@ -47,8 +47,7 @@ public class Sort {
         }
     }*/
 
-    public void insertionSort(int arr[])
-    {
+    public void insertionSort(@NotNull int arr[]) {
         int n = arr.length;
         for (int i = 1; i < n; ++i) {
             int key = arr[i];
@@ -95,6 +94,39 @@ public class Sort {
 
         System.out.println(Arrays.toString(arr));
     }*/
+
+    public void mergeSort(int[] vetor, int inicio, int fim) {
+
+        if (inicio < fim) {
+            int meio = (inicio + fim) / 2;
+            mergeSort(vetor, inicio, meio);
+            mergeSort(vetor, meio + 1, fim);
+            intercala(vetor, inicio, meio, fim);
+        }
+    }
+
+    public void intercala(int[] vetor, int inicio, int meio, int fim) {
+        int vetorAux[] = new int[fim + 1];
+        int i;
+        for (i = inicio; i <= meio; i++) {
+            vetorAux[i] = vetor[i];
+        }
+        int j;
+        for (j = meio + 1; j <= fim; j++) {
+            vetorAux[fim + meio + 1 - j] = vetor[j];
+        }
+        i = inicio;
+        j = fim;
+        for (int k = inicio; k <= fim; k++) {
+            if (vetorAux[i] <= vetorAux[j]) {
+                vetor[k] = vetorAux[i];
+                i = i + 1;
+            } else {
+                vetor[k] = vetorAux[j];
+                j = j - 1;
+            }
+        }
+    }
 
     @NotNull
     @Contract("_ -> param1")
@@ -226,6 +258,7 @@ public class Sort {
 
         for (int i = 0; i < arr.length; i++) {
             int j = numBaldes - 1;
+
             while (true) {
                 if (j < 0) {
                     break;
@@ -239,8 +272,8 @@ public class Sort {
         }
 
         int indice = 0;
-        for (int i = 0; i < numBaldes; i++) {
 
+        for (int i = 0; i < numBaldes; i++) {
             int[] aux = new int[B[i].size()];
 
             for (int j = 0; j < aux.length; j++) {

@@ -150,6 +150,8 @@ public class Main {
             sort.radixSort(arr.clone());*/
             time.add("RADIX_SORT", 0);
         }
+
+
         grafico.writer("FinalGraph.html", String.valueOf(6) + "!", time.get("BUBBLE_SORT"));
         grafico.writer("FinalGraph.html", String.valueOf(6) + "@", time.get("SELECTION_SORT"));
         grafico.writer("FinalGraph.html", String.valueOf(6) + "#", time.get("INSERTION_SORT"));
