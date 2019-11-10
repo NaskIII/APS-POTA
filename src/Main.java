@@ -4,7 +4,6 @@ import Tempo.Time;
 import Graficos.Grafico;
 
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -25,7 +24,7 @@ public class Main {
         Grafico grafico = new Grafico();
         System.out.println("\n\n================ Iniciando =================\n");
 
-        grafico.reader(System.getProperty("user.dir") + "\\src\\Graficos\\Canvas.html");
+        grafico.reader(System.getProperty("user.dir") + "/src/Graficos/Canvas.html");
 
         for (int i = 0; i < 5; i++){
             for (int j = 0; j < 50; j++){
@@ -55,9 +54,9 @@ public class Main {
 
                 //=======================================
 
-                /*time.start();
-                sort.mergeSort(arr.clone());*/
-                time.add("MERGE_SORT", 0);
+                time.start();
+                sort.mergeSort(arr.clone(), 0, arr.length - 1);
+                time.add("MERGE_SORT", time.stop());
 
                 //=======================================
 
@@ -79,9 +78,9 @@ public class Main {
 
                 //=======================================
 
-                /*time.start();
-                sort.radixSort(arr.clone());*/
-                time.add("RADIX_SORT", 0);
+                time.start();
+                sort.radixSort(arr.clone(), arr.length);
+                time.add("RADIX_SORT", time.stop());
             }
             grafico.writer("FinalGraph.html", String.valueOf(i + 1) + "!", time.get("BUBBLE_SORT"));
             grafico.writer("FinalGraph.html", String.valueOf(i + 1) + "@", time.get("SELECTION_SORT"));
@@ -122,9 +121,9 @@ public class Main {
 
             //=======================================
 
-            /*time.start();
-            sort.mergeSort(arr.clone());*/
-            time.add("MERGE_SORT", 0);
+            time.start(true);
+            sort.mergeSort(arr.clone(), 0, arr.length - 1);
+            time.add("MERGE_SORT", time.stop(true));
 
             //=======================================
 
@@ -146,11 +145,10 @@ public class Main {
 
             //=======================================
 
-            /*time.start();
-            sort.radixSort(arr.clone());*/
-            time.add("RADIX_SORT", 0);
+            time.start(true);
+            sort.radixSort(arr.clone(), arr.length);
+            time.add("RADIX_SORT", time.stop(true));
         }
-
 
         grafico.writer("FinalGraph.html", String.valueOf(6) + "!", time.get("BUBBLE_SORT"));
         grafico.writer("FinalGraph.html", String.valueOf(6) + "@", time.get("SELECTION_SORT"));
@@ -161,7 +159,6 @@ public class Main {
         grafico.writer("FinalGraph.html", String.valueOf(6) + "*", time.get("COUNT_SORT"));
         grafico.writer("FinalGraph.html", String.valueOf(6) + "(", time.get("BUCKET_SORT"));
         grafico.writer("FinalGraph.html", String.valueOf(6) + ")", time.get("RADIX_SORT"));
-        time.getHash();
         time.restart();
 
         System.out.println("=================== FINISH ====================");

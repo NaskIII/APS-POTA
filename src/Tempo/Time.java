@@ -32,12 +32,7 @@ public class Time {
         return end = System.currentTimeMillis() - begin;
     }
 
-    public double stop(int i){
-        return end = (long) ((System.nanoTime() - begin) / 1e+6);
-    }
-
     public void add(String key, double value) {
-        //dict.put(key, String.valueOf(value));
         String valor = dict.get(key);
 
         if (valor == null) {
