@@ -48,7 +48,7 @@ public class Array {
         int array[] = new int[size];
         Random r = new Random();
         for (int i = 0; i < size; i++) {
-            array[i] = r.nextInt(101);
+            array[i] = r.nextInt(1001);
         }
         cont++;
         return array;

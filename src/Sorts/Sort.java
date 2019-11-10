@@ -256,7 +256,6 @@ public class Sort {
             B[i] = new LinkedList<Integer>();
         }
 
-        //Coloca os valores no balde respectivo:
         for (int i = 0; i < arr.length; i++) {
             int j = numBaldes - 1;
 
