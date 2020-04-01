@@ -1,58 +1,63 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <title> Gráficos </title>
-    <meta charset="utf-8">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
-</head>
-<body>
-<canvas class="array5"></canvas>
+    <head>
+        <title>Gráficos</title>
+        <meta charset="utf-8">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+        <style>
+            canvas {
+                padding-left: 300px;
+            }
+        </style>
+    </head>
+    <body>
+    <canvas class="array5" width="1200" height="600"></canvas>
 
-<script>
+        <script>
             var ctx = document.getElementsByClassName("array5");
 
             //Type, Data and options
             var chartGraph = new Chart(ctx, {
                 type: 'bar',
                 options: {
-                    responsive: true,
+                    responsive: false,
 
                     title: {
                         display: true,
-                        text: 'Array de 1< elementos',
+                        text: 'Array de 5 elementos',
                         fontSize: 25,
                         fontColor: '#4B0082'
                     }
                 },
-
+                
                 data: {
                     labels: ["BUBBLE_SORT", "SELECTION_SORT", "INSERTION_SORT", "HEAP_SORT", "MERGE_SORT", "QUICK_SORT", "COUNT_SORT", "BUCKET_SORT", "RADIX_SORT"],
                     datasets: [{
-                        label: "Tempo 1(¨) ",
+                        label: "Tempo(ns)",
                         data: [ 1! , 1@ , 1# , 1$ , 1% , 1& , 1* , 1( , 1) ],
                         borderColor: 'rgba(77, 166, 253, 0.70)',
                         backgroundColor: 'rgba(77, 166, 253, 0.60)'
                     }]
                 }
             });
-
+            
         </script>
 
-<canvas class="array10"></canvas>
+    <canvas class="array10" width="1200" height="600"></canvas>
 
-<script>
+        <script>
             var ctx = document.getElementsByClassName("array10");
 
             //Type, Data and options
             var chartGraph = new Chart(ctx, {
                 type: 'bar',
                 options: {
-                    responsive: true,
+                    responsive: false,
 
                     title: {
                         display: true,
                         position: 'top',
-                        text: 'Array de 2< elementos',
+                        text: 'Array de 10 elementos',
                         fontSize: 25,
                         fontColor: '#4B0082'
                     }
@@ -61,7 +66,7 @@
                 data: {
                     labels: ["BUBBLE_SORT", "SELECTION_SORT", "INSERTION_SORT", "HEAP_SORT", "MERGE_SORT", "QUICK_SORT", "COUNT_SORT", "BUCKET_SORT", "RADIX_SORT"],
                     datasets: [{
-                        label: "Tempo 2(¨) ",
+                        label: "Tempo(ns)",
                         data: [ 2! , 2@ , 2# , 2$ , 2% , 2& , 2* , 2( , 2) ],
                         borderColor: 'rgba(77, 166, 253, 0.70)',
                         backgroundColor: 'rgba(77, 166, 253, 0.60)'
@@ -71,20 +76,20 @@
 
         </script>
 
-<canvas class="array50"></canvas>
+    <canvas class="array50" width="1200" height="600"></canvas>
 
-<script>
+    <script>
             var ctx = document.getElementsByClassName("array50");
 
             //Type, Data and options
             var chartGraph = new Chart(ctx, {
                 type: 'bar',
                 options: {
-                    responsive: true,
+                    responsive: false,
 
                     title: {
                         display: true,
-                        text: 'Array de 3< Elementos',
+                        text: 'Array de 50 Elementos',
                         fontSize: 25,
                         fontColor: '#4B0082'
                     }
@@ -93,7 +98,7 @@
                 data: {
                     labels: ["BUBBLE_SORT", "SELECTION_SORT", "INSERTION_SORT", "HEAP_SORT", "MERGE_SORT", "QUICK_SORT", "COUNT_SORT", "BUCKET_SORT", "RADIX_SORT"],
                     datasets: [{
-                        label: "Tempo 3(¨) ",
+                        label: "Tempo(ns)",
                         data: [ 3! , 3@ , 3# , 3$ , 3% , 3& , 3* , 3( , 3) ],
                         borderColor: 'rgba(77, 166, 253, 0.70)',
                         backgroundColor: 'rgba(77, 166, 253, 0.60)'
@@ -103,19 +108,22 @@
 
         </script>
 
-<canvas class="array100"></canvas>
+        <br>
+        <br>
 
-<script>
+    <canvas class="array100" width="1200" height="600"></canvas>
+
+    <script>
             var ctx = document.getElementsByClassName("array100");
 
             //Type, Data and options
             var chartGraph = new Chart(ctx, {
                 type: 'bar',
                 options: {
-                    responsive: true,
+                    responsive: false,
                     title: {
                         display: true,
-                        text: 'Array de 4< Elementos',
+                        text: 'Array de 100 Elementos',
                         fontSize: 25,
                         fontColor: '#4B0082'
                     }
@@ -124,7 +132,7 @@
                 data: {
                     labels: ["BUBBLE_SORT", "SELECTION_SORT", "INSERTION_SORT", "HEAP_SORT", "MERGE_SORT", "QUICK_SORT", "COUNT_SORT", "BUCKET_SORT", "RADIX_SORT"],
                     datasets: [{
-                        label: "Tempo 4(¨) ",
+                        label: "Tempo(ns)",
                         data: [ 4! , 4@ , 4# , 4$ , 4% , 4& , 4* , 4( , 4) ],
                         borderColor: 'rgba(77, 166, 253, 0.70)',
                         backgroundColor: 'rgba(77, 166, 253, 0.60)'
@@ -134,19 +142,19 @@
 
         </script>
 
-<canvas class="array1000"></canvas>
+    <canvas class="array1000" width="1200" height="600"></canvas>
 
-<script>
+    <script>
             var ctx = document.getElementsByClassName("array1000");
 
             //Type, Data and options
             var chartGraph = new Chart(ctx, {
                 type: 'bar',
                 options:{
-                    responsive: true,
+                    responsive: false,
                     title: {
                         display: true,
-                        text: 'Array de 5< Elementos',
+                        text: 'Array de 1000 Elementos',
                         fontSize: 25,
                         fontColor: '#4B0082'
                     }
@@ -155,7 +163,7 @@
                 data: {
                     labels: ["BUBBLE_SORT", "SELECTION_SORT", "INSERTION_SORT", "HEAP_SORT", "MERGE_SORT", "QUICK_SORT", "COUNT_SORT", "BUCKET_SORT", "RADIX_SORT"],
                     datasets: [{
-                        label: "Tempo 5(¨) ",
+                        label: "Tempo(ns)",
                         data: [ 5! , 5@ , 5# , 5$ , 5% , 5& , 5* , 5( , 5) ],
                         borderColor: 'rgba(77, 166, 253, 0.70)',
                         backgroundColor: 'rgba(77, 166, 253, 0.60)'
@@ -165,19 +173,19 @@
 
         </script>
 
-<canvas class="array10000"></canvas>
+    <canvas class="array10000" width="1200" height="600"></canvas>
 
-<script>
+    <script>
             var ctx = document.getElementsByClassName("array10000");
 
             //Type, Data and options
             var chartGraph = new Chart(ctx, {
                 type: 'bar',
                 options: {
-                    responsive: true,
+                    responsive: false,
                     title: {
                         display: true,
-                        text: 'Array de 6< Elementos',
+                        text: 'Array de 10000 Elementos',
                         fontSize: 25,
                         fontColor: '#4B0082'
                     }
@@ -186,7 +194,7 @@
                 data: {
                     labels: ["BUBBLE_SORT", "SELECTION_SORT", "INSERTION_SORT", "HEAP_SORT", "MERGE_SORT", "QUICK_SORT", "COUNT_SORT", "BUCKET_SORT", "RADIX_SORT"],
                     datasets: [{
-                        label: "Tempo 6(¨) ",
+                        label: "Tempo(ms)",
                         data: [ 6! , 6@ , 6# , 6$ , 6% , 6& , 6* , 6( , 6) ],
                         borderColor: 'rgba(77, 166, 253, 0.70)',
                         backgroundColor: 'rgba(77, 166, 253, 0.60)'
@@ -196,5 +204,5 @@
 
         </script>
 
-</body>
+    </body>
 </html>

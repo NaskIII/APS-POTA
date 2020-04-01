@@ -8,13 +8,14 @@ public class Time {
     private long end;
     private HashMap<String, String> dict = new HashMap<String, String>();
 
+    public void start() {
+        end = 0;
+        begin = System.nanoTime();
+    }
+
     public void start(boolean milli) {
         end = 0;
-        if (milli) {
-            begin = System.currentTimeMillis();
-        } else {
-            begin = System.nanoTime();
-        }
+        begin = System.currentTimeMillis();
     }
 
     public void restart() {
@@ -23,12 +24,12 @@ public class Time {
         dict.clear();
     }
 
+    public double stop() {
+        return end = System.nanoTime() - begin;
+    }
+
     public long stop(boolean millis) {
-        if (millis) {
-            return end = System.currentTimeMillis() - begin;
-        } else {
-            return end = System.nanoTime() - begin;
-        }
+        return end = System.currentTimeMillis() - begin;
     }
 
     public void add(String key, double value) {
@@ -49,6 +50,6 @@ public class Time {
 
 
     public void getHash() {
-        dict.forEach((key, value) -> System.out.println(key + ": " + Double.parseDouble(value) / 50 )) ;
+        dict.forEach((key, value) -> System.out.println(key + ": " + Double.parseDouble(value) / 50));
     }
 }
