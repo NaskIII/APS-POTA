@@ -1,14 +1,11 @@
 package Sorts;
 
-import org.jetbrains.annotations.Contract;
-import org.jetbrains.annotations.NotNull;
-
 import java.util.Arrays;
 import java.util.LinkedList;
 
 public class Sort {
 
-    public void bubbleSort(@NotNull int[] arr) {
+    public void bubbleSort(int[] arr) {
         for (int i = 1; i <= arr.length; i++) {
             for (int j = 0; j < arr.length - i; j++) {
                 if (arr[j] > arr[j + 1])
@@ -17,7 +14,7 @@ public class Sort {
         }
     }
 
-    public void selectionSort(@NotNull int[] arr) {
+    public void selectionSort(int[] arr) {
         int current_min;
 
         for (int i = 0; i < arr.length; i++) {
@@ -29,7 +26,7 @@ public class Sort {
         }
     }
 
-    public void insertionSort(@NotNull int arr[]) {
+    public void insertionSort(int[] arr) {
         int n = arr.length;
         for (int i = 1; i < n; ++i) {
             int key = arr[i];
@@ -53,8 +50,8 @@ public class Sort {
         }
     }
 
-    public void intercala(int[] vetor, int inicio, int meio, int fim) {
-        int vetorAux[] = new int[fim + 1];
+    private void intercala(int[] vetor, int inicio, int meio, int fim) {
+        int[] vetorAux = new int[fim + 1];
         int i;
         for (i = inicio; i <= meio; i++) {
             vetorAux[i] = vetor[i];
@@ -76,8 +73,6 @@ public class Sort {
         }
     }
 
-    @NotNull
-    @Contract("_ -> param1")
     public void heapSort(int[] arr) {
         criaHeap(arr, arr.length);
         int fim = arr.length - 1;
@@ -88,7 +83,7 @@ public class Sort {
         }
     }
 
-    public void criaHeap(int[] arr, int size) {
+    private void criaHeap(int[] arr, int size) {
         int inicio = (size - 2) / 2;
         while (inicio >= 0) {
             arrumaHeap(arr, inicio, size - 1);
@@ -96,7 +91,7 @@ public class Sort {
         }
     }
 
-    public void arrumaHeap(int[] arr, int inicio, int fim) {
+    private void arrumaHeap(int[] arr, int inicio, int fim) {
         int raiz = inicio;
         while (raiz * 2 + 1 <= fim) {
             int filho = raiz * 2 + 1;
@@ -117,7 +112,6 @@ public class Sort {
         }
     }
 
-    @Contract("_, _, _ -> param1")
     public void quickSort(int[] arr, int inicio, int fim) {
         if (inicio < fim) {
             int meio = particionar(arr, inicio, fim);
@@ -126,7 +120,7 @@ public class Sort {
         }
     }
 
-    public int particionar(int arr[], int inicio, int fim) {
+    private int particionar(int[] arr, int inicio, int fim) {
         int i = inicio + 1;
         int j = fim;
         while (i <= j) {
@@ -147,13 +141,12 @@ public class Sort {
         return j;
     }
 
-    @Contract("_ -> param1")
     public void countSort(int[] arr) {
         int maior = encontrarMaior(arr);
         int[] count = new int[maior + 1];
 
-        for (int i = 0; i < arr.length; i++) {
-            count[arr[i]] += 1;
+        for (int value : arr) {
+            count[value] += 1;
         }
 
         int indice = 0;
@@ -167,10 +160,10 @@ public class Sort {
         }
     }
 
-    public void countSort(int arr[], int n, int exp) {
-        int output[] = new int[n];
+    private void countSort(int[] arr, int n, int exp) {
+        int[] output = new int[n];
         int i;
-        int count[] = new int[10];
+        int[] count = new int[10];
         Arrays.fill(count, 0);
 
         for (i = 0; i < n; i++)
@@ -198,15 +191,15 @@ public class Sort {
             B[i] = new LinkedList<Integer>();
         }
 
-        for (int i = 0; i < arr.length; i++) {
+        for (int value : arr) {
             int j = numBaldes - 1;
 
             while (true) {
                 if (j < 0) {
                     break;
                 }
-                if (arr[i] >= (j * 5)) {
-                    B[j].add(arr[i]);
+                if (value >= (j * 5)) {
+                    B[j].add(value);
                     break;
                 }
                 j--;
@@ -231,25 +224,24 @@ public class Sort {
         }
     }
 
-    public void radixSort(int arr[], int n) {
+    public void radixSort(int[] arr, int n) {
         int max = encontrarMaior(arr);
 
         for (int exp = 1; max / exp > 0; exp *= 10)
             countSort(arr, n, exp);
     }
 
-    @Contract(pure = true)
-    public int encontrarMaior(@NotNull int[] arr) {
+    private int encontrarMaior(int[] arr) {
         int maior = arr[0];
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] > maior) {
-                maior = arr[i];
+        for (int value : arr) {
+            if (value > maior) {
+                maior = value;
             }
         }
         return maior;
     }
 
-    private void swap(@NotNull int[] arr, int p1, int p2) {
+    private void swap(int[] arr, int p1, int p2) {
         int aux = arr[p1];
         arr[p1] = arr[p2];
         arr[p2] = aux;
